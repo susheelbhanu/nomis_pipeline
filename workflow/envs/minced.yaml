@@ -1,0 +1,5 @@
+channels:
+  - bioconda
+  - defaults
+dependencies:
+  - java-jdk=7.0.91=1

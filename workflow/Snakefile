@@ -1,0 +1,125 @@
+# Pipeline for additional processing of NOMIS datasets after IMP runs
+#
+# Example call: snakemake -s workflow/Snakefile --configfile config/config.yaml --use-conda --conda-prefix ${CONDA_PREFIX}/pipeline --cores 1 -rpn
+# Example call (esb-compute-01 or litcrit): CORES=24 snakemake -s workflow/Snakefile --configfile config/config.yaml --use-conda --conda-prefix ${CONDA_PREFIX}/pipeline --cores $CORES -rpn
+
+##############################
+# MODULES
+import os, re
+import glob
+import pandas as pd
+
+# importing specific scripts for parsing etc.
+# from scripts.utils import find_fast5, assembler_pairs
+
+##############################
+# CONFIG
+# can be overwritten by using --configfile <path to config> when calling snakemake
+# configfile: "config/config.yaml"
+
+include:
+    "rules/init.smk"
+
+# print("no basecalling: {}".format(NO_BASECALLING))
+# print(INPUT_LINKS)
+
+
+##############################
+# TARGETS & RULES
+
+# List of (main) targets to be created
+TARGETS = []
+
+# Include rules and add targets based on the config file
+# include:
+#    "rules/setup.smk"
+
+# TARGETS.append("status/prepare_input.done") # TEST
+
+# IMP
+if "imp" in STEPS:
+    include:
+        "rules/imp.smk"
+    TARGETS += [
+        "status/imp.done"
+    ]
+
+# Viruses
+if "viruses" in STEPS:
+    include:
+        "rules/viruses.smk"
+    TARGETS += [
+        "status/viruses.done"
+    ]
+
+# Eukaryotes 
+if "eukaryotes" in STEPS:
+    include:
+        "rules/eukaryotes.smk"
+    TARGETS += [
+        "status/eukaryotes.done"
+    ]
+
+# Bins
+if "taxonomy" or "functions" or "mags" in STEPS:
+    include:
+        "rules/bins.smk"
+    TARGETS += [
+        "status/bins.done"
+    ]
+
+# Eukaryote binning
+if "euk_bin" in STEPS:
+    include:
+        "rules/euk_bin.smk"
+    TARGETS += [
+        "status/euk_bin.done"
+    ]
+
+# GTDBtk + Checkm
+if "taxonomy" in STEPS:
+    include:
+        "rules/taxonomy.smk"
+    TARGETS += [
+        "status/gtdbtk_checkm.done"
+    ]
+
+# Functional annotation (METABOLIC, MAGICCAVE, FUNCS, antiSMASH)
+if "functions" in STEPS:
+    include:
+        "rules/functions.smk"
+    TARGETS += [
+        "status/functions.done"
+    ]
+
+# MANTIS annotation
+if "mantis" in STEPS:
+    include:
+        "rules/mantis.smk"
+    TARGETS += [
+        "status/mantis.done"
+    ]
+
+# Coassembly and Binning
+if "coassembly_binning" in STEPS:
+    include:
+        "rules/coassembly_binning.smk"
+    TARGETS += [
+        "status/coassembly_binning.done"
+    ]
+
+# gRodon + PopCOGent 
+if "misc" in STEPS:
+    include:
+        "rules/misc.smk"
+    TARGETS += [
+        "status/misc.done"
+    ]
+
+# No targets
+if len(TARGETS) == 0:
+    raise Exception('You are not serious. Nothing to be done? Really?')
+
+rule all:
+    input:
+        TARGETS

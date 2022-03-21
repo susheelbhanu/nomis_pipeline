@@ -1,0 +1,5 @@
+channels:
+ - bioconda
+dependencies:
+ - racon=1.4.3
+ - samtools=1.9

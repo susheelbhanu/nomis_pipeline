@@ -1,0 +1,7 @@
+channels:
+ - bioconda
+dependencies:
+ - nanostat=1.1.2
+ - nanoget=1.8.0
+ - nanomath=0.23.1
+ - python=3.6.7

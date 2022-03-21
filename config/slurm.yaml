@@ -1,0 +1,359 @@
+__default__:
+  time: "0-01:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+  job-name: "nomis_pipeline.{rule}"
+
+# Viruses
+vibrant:
+  time: "00-04:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+kraken2:
+  time: "00-02:00:00"
+  n: 1
+  nodes: 1
+  partition: "bigmem"
+  qos: "normal"
+  explicit: ""
+
+convert_files:
+  time: "00-02:00:00"
+  n: 1
+  nodes: 1
+  partition: "batch"
+  qos: "normal"
+  explicit: ""
+
+vcontact2:
+  time: "00-12:00:00"
+  n: 1
+  nodes: 1
+  partition: "batch"
+  qos: "normal"
+  explicit: ""
+
+kraken2:
+  time: "00-02:00:00"
+  n: 1
+  nodes: 1
+  partition: "bigmem"
+  qos: "normal"
+  explicit: ""
+
+kaiju:
+  time: "00-01:00:00"
+  n: 1
+  nodes: 1
+  partition: "bigmem"
+  qos: "normal"
+  explicit: ""
+
+kaiju_summary:
+  time: "00-00:15:00"
+  n: 1
+  nodes: 1
+  partition: "batch"
+  qos: "normal"
+  explicit: ""
+
+checkv:
+  time: "00-04:00:00"
+  n: 1
+  nodes: 1
+  partition: "batch"
+  qos: "normal"
+  explicit: ""
+
+# Eukaryotes
+eukulele:
+  time: "04-00:00:00"
+  partition: "batch"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+# Taxonomy
+gtdbtk:
+  time: "01-00:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+
+checkm:
+  time: "01-12:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+
+# Functional analyses
+antismash:
+  time: "02-00:00:00"
+  n: 1
+  nodes: 1
+  partition: "batch"
+  qos: "normal"
+  explicit: ""
+
+metabolic:
+  time: "03-00:00:00"
+  partition: "batch"
+  qos: "long"
+  nodes: 1
+  n: 1
+
+metabolishmm:
+  time: "01-12:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+
+magiccave:
+  time: "01-12:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1'
+
+prokka:
+  time: "00-2:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+
+mantis_run:
+  time: "01-12:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+
+bins_antismash:
+  time: "00-8:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1  
+
+gRodon:
+  time: "00-3:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+
+# Euk_bin
+deduplicate:
+  time: "05-00:00:00"
+  partition: "bigmem"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+euk_bin_kraken2:
+  time: "02-00:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+headers:
+  time: "00-04:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+extract_reads:
+  time: "00-08:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+concatenate:
+  time: "00-04:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+deduplicate2:
+  time: "05-00:00:00"
+  partition: "bigmem"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+assembly_sr_megahit:
+  time: "07-00:00:00"
+  partition: "bigmem"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+eukrep_fasta:
+  time: "01-00:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+coverm:
+  time: "02-00:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+concoct_prepare:
+  time: "00-08:00:00"
+  partition: "batch"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+concoct: 
+  time: "02-00:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+concoct_fasta:
+  time: "02-00:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+# Coassembly
+coassembly_concat:
+  time: "00-01:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+coassembly_dedup:
+  time: "03-00:00:00"
+  partition: "bigmem"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+coassembly_sr_megahit:
+  time: "07-00:00:00"
+  partition: "bigmem"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+# Mapping
+bwa_index_assembly:
+  time: "00-10:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+bwa_mem_assembly_sr:
+  time: "00-10:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+# Binning
+coverage:
+  time: "02-00:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+maxbin2:
+  time: "02-00:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+metabat2:
+  time: "02-00:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+scaffold:
+  time: "00-12:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+dastool:
+  time: "02-00:00:00"
+  partition: "batch"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+mapping_index:
+  time: "00-12:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+mapping:
+  time: "06-00:00:00"
+  partition: "batch"
+  qos: "long"
+  nodes: 1
+  n: 1
+  explicit: ""
+
+summarise_depth:
+  time: "00-10:00:00"
+  partition: "bigmem"
+  qos: "normal"
+  nodes: 1
+  n: 1
+  explicit: ""
